@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KrishiMitra - Your AI Ally for a Bountiful Harvest</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "inverse-primary": "#a5d0b9",
+                        "tertiary-fixed-dim": "#e9bdae",
+                        "on-primary-fixed": "#002114",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-fixed": "#a1f4c8",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f8f9fa",
+                        "primary": "#012d1d",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#a1f4c8",
+                        "on-tertiary-container": "#c79d90",
+                        "on-secondary-container": "#1b724f",
+                        "on-tertiary-fixed-variant": "#5e3f35",
+                        "surface-tint": "#3f6653",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "on-secondary-fixed-variant": "#005236",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#86d7ad",
+                        "secondary": "#116c4a",
+                        "surface-dim": "#d9dadb",
+                        "on-secondary-fixed": "#002113",
+                        "tertiary-container": "#52352b",
+                        "background": "#f8f9fa",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-surface-variant": "#414844",
+                        "on-surface": "#191c1d",
+                        "outline": "#717973",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c8c2",
+                        "inverse-surface": "#2e3132",
+                        "on-background": "#191c1d",
+                        "on-tertiary-fixed": "#2d150d",
+                        "surface-container-low": "#f3f4f5",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#1b4332",
+                        "on-error": "#ffffff",
+                        "tertiary": "#3a2017",
+                        "surface-container": "#edeeef"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "gutter": "16px",
+                        "touch-target-min": "56px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Noto Sans"],
+                        "body-lg": ["Noto Sans"],
+                        "label-lg": ["Noto Sans"],
+                        "body-md": ["Noto Sans"],
+                        "headline-md": ["Noto Sans"],
+                        "headline-lg-mobile": ["Noto Sans"],
+                        "button-text": ["Noto Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["20px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "30px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["26px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "button-text": ["20px", {"lineHeight": "24px", "fontWeight": "700"}]
+                    },
+                    "animation": {
+                        "fade-in-up": "fadeInUp 0.8s ease-out forwards",
+                        "float": "float 6s ease-in-out infinite",
+                        "shimmer": "shimmer 2s infinite linear",
+                        "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                    },
+                    "keyframes": {
+                        "fadeInUp": {
+                            "0%": { opacity: "0", transform: "translateY(20px)" },
+                            "100%": { opacity: "1", transform: "translateY(0)" }
+                        },
+                        "float": {
+                            "0%, 100%": { transform: "translateY(0)" },
+                            "50%": { transform: "translateY(-15px)" }
+                        },
+                        "shimmer": {
+                            "0%": { backgroundPosition: "-200px 0" },
+                            "100%": { backgroundPosition: "200px 0" }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .massive-btn {
+            min-height: 56px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 32px;
+            gap: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .massive-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(17, 108, 74, 0.3);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        
+        /* Smooth Nav Underline */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 4px;
+            bottom: -8px;
+            left: 0;
+            background-color: #116c4a;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Shimmer for Mandi Predictor */
+        .shimmer-effect {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background-size: 200px 100%;
+            animation: shimmer 2s infinite linear;
+        }
+
+        /* Scroll Reveal Utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.21, 1.02, 0.73, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .animate-float, .animate-fade-in-up, .shimmer-effect, .animate-pulse-slow {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="w-full sticky top-0 z-50 bg-surface border-b border-surface-container-high transition-all duration-300">
+<div class="max-w-7xl mx-auto flex justify-between items-center h-20 px-margin-desktop">
+<div class="flex items-center gap-3">
+<img alt="KrishiMitra Logo" class="h-10 w-10" src="https://lh3.googleusercontent.com/aida/ADBb0uhbflBJVyISTUt5XrYicZS3bnMeTxFU0Uz4NGx80lHX32ZORAo_Ok5O9Kh3lmvc0wAXUv3FrCMiPbG3PAv44jhV-xMGg8Wl_GyhO-l8BYgbj50iYMjnfTXQ39A1jzNMT0IeSeNxQVfoiTJjlvbnR3Zca8iQJs-YVb0H5txakBUfD5qB1LiujBBjbxbiurng5EPnTMZgVS1c2Oby4FHlnbgGBtJ_0JGDqQXXksxsh1QJfq_Nc5gD44vtkr4"/>
+<span class="text-headline-md font-headline-md text-primary">KrishiMitra</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="nav-link active font-label-lg text-label-lg text-secondary font-bold h-full flex items-center" href="#">Home</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors flex items-center" href="#">AI Crop Doctor</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors flex items-center" href="#">Mandi Prices</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors flex items-center" href="#">Weather</a>
+<a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors flex items-center" href="#">Voice Help</a>
+</nav>
+<button class="massive-btn bg-secondary text-on-secondary rounded-full font-button-text active:scale-95">
+                Get Started
+            </button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-white py-16 md:py-24">
+<div class="max-w-7xl mx-auto px-margin-desktop grid md:grid-cols-2 gap-12 items-center">
+<div class="z-10 animate-fade-in-up">
+<h1 class="font-headline-lg text-headline-lg md:text-5xl md:leading-tight text-primary mb-6">
+                        Your AI Ally for a <span class="text-secondary">Bountiful Harvest</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
+                        Empowering Indian farmers with cutting-edge AI technology to diagnose crop diseases, predict market prices, and secure their future.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="massive-btn bg-secondary text-on-secondary rounded-xl font-button-text shadow-lg hover:shadow-xl">
+<span class="material-symbols-outlined">download</span>
+                            Download App
+                        </button>
+<button class="massive-btn border-2 border-primary text-primary rounded-xl font-button-text hover:bg-surface-container-low">
+<span class="material-symbols-outlined">play_circle</span>
+                            Watch Demo
+                        </button>
+</div>
+</div>
+<div class="relative animate-float">
+<div class="aspect-square rounded-[2rem] overflow-hidden border-8 border-surface-container-high shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A high-resolution, professional photograph of a smiling Indian farmer standing in a vibrant green cotton field at dawn. He is holding a modern smartphone, showing a clear mobile interface with agricultural data. The golden hour lighting casts a warm, hopeful glow across the scene, emphasizing the lush textures of the crops and the earthy tones of the soil. The image style is realistic and inspiring, aligning with a premium digital brand for agriculture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQaXoKJIx5axLRpXwHwuTgIyuh3WYRjhEeoup-A5E8iqDcxdK2QNv0pxUrp6GC9VOHOv6GmSj7RxYfUUz12bh5NF3zIWEyqrLxtRV4l44lfUIsnIvmlGyX6YZpKm0oNb7bwDtuq1fW6Z4eyTSxeVwYT3q1PCU_9lNhcysWkP8wEjpmFV333u2qobTJMzmH8UzDFmgf6JdmRCXMNthbw2JZZlpKWhK6GrVVPXkh6_advf1fjBLTxlhgtuvdXJWQF59-ERh3d3dyQqs"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-secondary-container p-6 rounded-2xl shadow-xl flex items-center gap-4 border border-outline-variant animate-pulse-slow">
+<div class="bg-secondary p-3 rounded-full text-white">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div>
+<p class="font-label-lg text-on-secondary-container">25% Yield Increase</p>
+<p class="text-sm opacity-80">Reported by verified users</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Showcase (Bento Grid) -->
+<section class="py-20 bg-surface overflow-hidden">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="text-center mb-16 reveal">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Powerful Features for Modern Farming</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">KrishiMitra brings the lab and the market right to your palm, making precision farming accessible to every household.</p>
+</div>
+<div class="bento-grid grid-cols-1 md:grid-cols-12">
+<!-- AI Crop Doctor -->
+<div class="md:col-span-7 bg-white p-8 rounded-[2rem] border border-outline-variant flex flex-col justify-between group hover:border-secondary transition-all h-[400px] reveal">
+<div>
+<div class="w-16 h-16 bg-primary-container rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl">medical_services</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">AI Crop Doctor</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Take a photo of any unhealthy plant. Our advanced vision AI diagnoses 200+ diseases instantly and suggests organic treatments.</p>
+</div>
+<div class="relative h-32 w-full overflow-hidden rounded-xl">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="AI scanning leaf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4lx5oyg_0_PO_zYv8xrso1QRFJuG46xR7IWw5YhFJiEzqok8tI50C3G0aK1AaXKWoFa0q9jKNTvbZiy7yAPFilNNRHeX1oWiyOnlyPhT2CyiV_JeP10YomLG4AJ5TkbPQPauKOGZLtGAN6gZ3_zeHgMjWEkFhXGj6rSJEUd6TsuE9fIc8GqYuVqL8ByAqGoP39pUWFekA3gZkIXXMjLDXPKVmPGQyaVyag5P5n6_vPuoEj3S_exEbb9N1xMllBPQOazSl16yg7oE"/>
+</div>
+</div>
+<!-- Mandi Price Predictor -->
+<div class="md:col-span-5 bg-secondary-container p-8 rounded-[2rem] border border-outline-variant flex flex-col group hover:shadow-lg transition-all h-[400px] reveal">
+<div class="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl">query_stats</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Mandi Price Predictor</h3>
+<p class="font-body-md text-on-surface-variant">Real-time market forecasts using historical data and local demand patterns. Know exactly when to sell to maximize your profits.</p>
+<div class="mt-auto pt-4 relative overflow-hidden rounded-t-lg">
+<div class="flex justify-between items-end gap-2 h-32">
+<div class="w-1/4 bg-white h-12 rounded-t-lg relative overflow-hidden"><div class="shimmer-effect absolute inset-0"></div></div>
+<div class="w-1/4 bg-white h-20 rounded-t-lg relative overflow-hidden"><div class="shimmer-effect absolute inset-0"></div></div>
+<div class="w-1/4 bg-secondary h-32 rounded-t-lg relative overflow-hidden"><div class="shimmer-effect absolute inset-0"></div></div>
+<div class="w-1/4 bg-white h-24 rounded-t-lg relative overflow-hidden"><div class="shimmer-effect absolute inset-0"></div></div>
+</div>
+</div>
+</div>
+<!-- Hyper-Local Weather -->
+<div class="md:col-span-5 bg-white p-8 rounded-[2rem] border border-outline-variant group hover:border-secondary transition-all h-[360px] reveal">
+<div class="w-16 h-16 bg-primary-container rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl">partly_cloudy_day</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Hyper-Local Weather</h3>
+<p class="font-body-md text-on-surface-variant">1km-radius precision alerts. Get specific rain and pest-risk warnings for your exact field location, not just your district.</p>
+</div>
+<!-- Bhashini Voice -->
+<div class="md:col-span-7 bg-primary p-8 rounded-[2rem] text-on-primary group hover:bg-primary-container transition-all h-[360px] flex items-center gap-8 reveal">
+<div class="flex-1">
+<div class="w-16 h-16 bg-secondary-container rounded-2xl flex items-center justify-center mb-6 relative group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container text-3xl animate-pulse-slow" style="font-variation-settings: 'FILL' 1;">mic</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Bhashini Voice Assistant</h3>
+<p class="font-body-md opacity-80">Don't like typing? Just speak. Ask questions in Marathi, Hindi, Telugu, and 12 other languages.</p>
+</div>
+<div class="hidden sm:flex flex-col gap-2">
+<div class="bg-surface/10 p-4 rounded-full text-center hover:bg-surface/30 transition-colors cursor-default">मराठी</div>
+<div class="bg-surface/20 p-4 rounded-full text-center font-bold hover:bg-surface/40 transition-colors cursor-default">हिंदी</div>
+<div class="bg-surface/10 p-4 rounded-full text-center hover:bg-surface/30 transition-colors cursor-default">தமிழ்</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonial Section -->
+<section class="py-24 bg-white">
+<div class="max-w-7xl mx-auto px-margin-desktop reveal">
+<div class="bg-surface-container-low rounded-[3rem] overflow-hidden flex flex-col lg:flex-row shadow-sm border border-outline-variant group">
+<div class="lg:w-1/2 h-80 lg:h-auto overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Portrait of Ramesh Kumar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt3NDjxW5t3RACqP6IUL-rnUSCtxWC1S7dkGD8JWBeMEaGQmISlWvB4rwn3jJrHJacfQ5VmYGxBUWAkuyYSePaO3a2Pj096Fx_YAWyBIrcc3Njym2ArujkJ-83C6fA-B-8-BJvjtzO1Ln78nWHU2s2wVjY80jrK-rVOhadRkGbJep4QiLG3vqOrOUiaNFKWAaAkSQFocH6w20NRWg_DdjJh9tsVdTk08MHlhlN_AbQSJAiZPiE1SkYwVRsabgqXrUjmMlCEQl9mlY"/>
+</div>
+<div class="lg:w-1/2 p-12 md:p-16 flex flex-col justify-center">
+<span class="material-symbols-outlined text-secondary text-5xl mb-6 group-hover:rotate-12 transition-transform" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-6">"Last season, the pink bollworm threatened my entire farm. KrishiMitra's AI doctor detected it early and saved my harvest."</h3>
+<p class="font-label-lg text-label-lg text-primary">— Ramesh Kumar</p>
+<p class="font-body-md text-on-surface-variant">Cotton Farmer, Nagpur, Maharashtra</p>
+<div class="mt-10 flex gap-4 items-center">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-on-surface-variant text-sm">Verified User</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- App Integration (Visual Preview) -->
+<section class="py-20 bg-surface overflow-hidden">
+<div class="max-w-7xl mx-auto px-margin-desktop text-center">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-16 reveal">Earthy Design, Radical Simplicity</h2>
+<div class="relative flex justify-center items-center">
+<!-- Screen 1 -->
+<div class="w-72 md:w-80 h-[600px] bg-white rounded-[3rem] border-8 border-primary-container shadow-2xl z-20 overflow-hidden -rotate-6 transition-transform hover:rotate-0 duration-500 reveal">
+<div class="h-full bg-surface-container-lowest p-6 flex flex-col">
+<div class="flex justify-between items-center mb-8">
+<span class="material-symbols-outlined text-primary">menu</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+<span class="text-sm font-bold">Nagpur</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary-fixed"></div>
+</div>
+<div class="bg-secondary-container p-4 rounded-2xl mb-6">
+<p class="text-xs uppercase font-bold text-on-secondary-container mb-1">Current Weather</p>
+<div class="flex justify-between items-center">
+<span class="text-3xl font-bold">32°C</span>
+<span class="material-symbols-outlined text-3xl">sunny</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4">My Farm Health</h4>
+<div class="space-y-4">
+<div class="bg-white p-4 rounded-2xl border border-outline-variant flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span>Soil Moisture: Optimal</span>
+</div>
+<div class="bg-white p-4 rounded-2xl border border-outline-variant flex items-center gap-4">
+<span class="material-symbols-outlined text-error">warning</span>
+<span>Pest Risk: Moderate</span>
+</div>
+</div>
+<div class="mt-auto flex justify-around p-4 border-t-2 border-surface-container-high">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="material-symbols-outlined text-on-surface-variant">camera</span>
+<span class="material-symbols-outlined text-on-surface-variant">chat</span>
+</div>
+</div>
+</div>
+<!-- Screen 2 -->
+<div class="hidden md:block w-80 h-[600px] bg-white rounded-[3rem] border-8 border-primary shadow-2xl z-10 overflow-hidden rotate-6 translate-x-12 opacity-80 reveal" style="transition-delay: 200ms;">
+<div class="h-full bg-white p-6 flex flex-col">
+<h4 class="font-headline-md text-headline-md mb-6">Mandi Prices</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-4 border-b border-surface-container-high hover:bg-surface transition-colors">
+<span>Cotton (Kapas)</span>
+<span class="font-bold text-secondary">₹7,200/q</span>
+</div>
+<div class="flex justify-between items-center p-4 border-b border-surface-container-high hover:bg-surface transition-colors">
+<span>Soybean</span>
+<span class="font-bold text-secondary">₹5,400/q</span>
+</div>
+<div class="flex justify-between items-center p-4 border-b border-surface-container-high hover:bg-surface transition-colors">
+<span>Wheat</span>
+<span class="font-bold text-secondary">₹2,850/q</span>
+</div>
+</div>
+<div class="mt-12 bg-primary p-6 rounded-2xl text-on-primary text-center group">
+<p class="text-sm mb-2 opacity-80">Predicted Trend</p>
+<p class="text-2xl font-bold group-hover:scale-110 transition-transform">+12.5% Next Week</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 bg-primary text-on-primary text-center">
+<div class="max-w-4xl mx-auto px-margin-desktop reveal">
+<h2 class="font-headline-lg text-headline-lg md:text-5xl mb-8">Join the Future of Farming</h2>
+<p class="font-body-lg text-body-lg opacity-80 mb-12">Already trusted by 500,000+ Indian farmers. Download today and start your journey towards a smarter harvest.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="massive-btn bg-secondary-container text-on-secondary-container rounded-2xl font-button-text active:scale-95">
+<span class="material-symbols-outlined">play_store_installed</span>
+                        Google Play Store
+                    </button>
+<button class="massive-btn bg-white text-primary rounded-2xl font-button-text active:scale-95">
+<span class="material-symbols-outlined">mail</span>
+                        Join Newsletter
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-primary text-on-primary py-12">
+<div class="max-w-7xl mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<img alt="KrishiMitra Logo" class="h-10 w-10 brightness-0 invert" src="https://lh3.googleusercontent.com/aida/ADBb0uhbflBJVyISTUt5XrYicZS3bnMeTxFU0Uz4NGx80lHX32ZORAo_Ok5O9Kh3lmvc0wAXUv3FrCMiPbG3PAv44jhV-xMGg8Wl_GyhO-l8BYgbj50iYMjnfTXQ39A1jzNMT0IeSeNxQVfoiTJjlvbnR3Zca8iQJs-YVb0H5txakBUfD5qB1LiujBBjbxbiurng5EPnTMZgVS1c2Oby4FHlnbgGBtJ_0JGDqQXXksxsh1QJfq_Nc5gD44vtkr4"/>
+<span class="text-headline-md font-headline-md">KrishiMitra</span>
+</div>
+<p class="font-body-md opacity-80 max-w-sm mb-8">Empowering India's growth through AI-led agricultural intelligence. Built with love for the Indian Soil.</p>
+<p class="font-body-md opacity-80">© 2024 KrishiMitra AI. Empowering Indian Farmers.</p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-4">
+<h5 class="font-label-lg text-secondary-fixed">Resources</h5>
+<a class="font-body-md opacity-80 hover:opacity-100 hover:underline transition-opacity" href="#">Farmer Guide</a>
+<a class="font-body-md opacity-80 hover:opacity-100 hover:underline transition-opacity" href="#">Mandi Guide</a>
+<a class="font-body-md opacity-80 hover:opacity-100 hover:underline transition-opacity" href="#">Success Stories</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-label-lg text-secondary-fixed">Support</h5>
+<a class="font-body-md opacity-80 hover:opacity-100 hover:underline transition-opacity" href="#">About Us</a>
+<a class="font-body-md opacity-80 hover:opacity-100 hover:underline transition-opacity" href="#">Privacy Policy</a>
+<a class="font-body-md opacity-80 hover:opacity-100 hover:underline transition-opacity" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Scroll Reveal Implementation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Sticky header styling on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.style.backgroundColor = 'rgba(248, 249, 250, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.classList.remove('shadow-md');
+                header.style.backgroundColor = '#f8f9fa';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Navigation link active state management
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active', 'font-bold', 'text-secondary'));
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.add('text-on-surface-variant'));
+                
+                link.classList.add('active', 'font-bold', 'text-secondary');
+                link.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>
