@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<html class="dark" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Third Wave Coffee — A specialty coffee experience for the discerning palate. Sourced ethically, brewed meticulously." />
+  <title>Third Wave Coffee — Specialty Craft Coffee</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>THIRD WAVE | Artisanal Coffee Roasters</title>
+<meta name="description" content="Third Wave Coffee — Artisanal coffee roasters dedicated to precision sourcing and small-batch roasting. Experience the art of the perfect pull."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-variant": "#3b3428",
+          "surface-container-highest": "#3b3428",
+          "outline-variant": "#514532",
+          "primary": "#ffdca1",
+          "on-primary": "#412d00",
+          "primary-fixed-dim": "#ffba20",
+          "on-background": "#ede1d0",
+          "on-surface": "#ede1d0",
+          "surface-container-low": "#211b11",
+          "surface-container": "#251f14",
+          "background": "#181309",
+          "inverse-on-surface": "#362f24",
+          "secondary": "#c6c6c7",
+          "inverse-surface": "#ede1d0",
+          "primary-container": "#ffb800",
+          "on-surface-variant": "#d5c4ab",
+          "surface-bright": "#3f382d",
+          "outline": "#9e8f78",
+          "secondary-container": "#454747",
+          "surface-tint": "#ffba20",
+          "surface-dim": "#181309",
+          "surface-container-lowest": "#130d05",
+          "surface": "#181309",
+          "primary-fixed": "#ffdea8",
+          "surface-container-high": "#30291e",
+          "on-primary-container": "#6b4c00",
+        },
+        spacing: {
+          "gutter": "32px",
+          "base": "8px",
+          "section-gap": "128px",
+          "margin-mobile": "24px",
+          "margin-desktop": "64px",
+          "container-max": "1280px"
+        },
+        fontFamily: { sans: ["Inter", "sans-serif"] },
+        fontSize: {
+          "headline-lg": ["40px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "700" }],
+          "body-md": ["16px", { lineHeight: "1.6", letterSpacing: "0.01em", fontWeight: "400" }],
+          "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+          "body-lg": ["18px", { lineHeight: "1.6", letterSpacing: "0.01em", fontWeight: "400" }],
+          "label-caps": ["12px", { lineHeight: "1.0", letterSpacing: "0.15em", fontWeight: "600" }],
+          "headline-md": ["24px", { lineHeight: "1.3", letterSpacing: "0.02em", fontWeight: "600" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  * { font-family: 'Inter', sans-serif; }
+  body { background-color: #181309; color: #ede1d0; overflow-x: hidden; cursor: none; }
+  .custom-cursor {
+    width: 20px; height: 20px;
+    border: 1px solid #ffdca1; border-radius: 50%;
+    position: fixed; pointer-events: none; z-index: 9999;
+    transition: transform 0.1s ease-out;
+    transform: translate(-50%, -50%);
+  }
+  .custom-cursor.expand { transform: translate(-50%, -50%) scale(2.5); background: rgba(255,220,161,0.1); }
+  .parallax-wrap { overflow: hidden; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  #preloader {
+    position: fixed; inset: 0; background: #130d05;
+    z-index: 10000; display: flex; align-items: center; justify-content: center;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #130d05; }
+  ::-webkit-scrollbar-thumb { background: #ffdca1; }
+  .nav-link { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; }
+</style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<!-- Preloader -->
+<div id="preloader">
+  <h1 style="font-size:40px;font-weight:700;letter-spacing:-0.01em;color:#ffdca1;" id="loader-text">THIRD WAVE</h1>
+</div>
+  <!-- GSAP CDN (v3) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<!-- Custom Cursor -->
+<div class="custom-cursor hidden md:block" id="cursor"></div>
+  <!-- Lenis Smooth Scroll CDN -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant flex justify-between items-center h-20 px-margin-desktop">
+  <a href="index.html" class="text-headline-md font-bold tracking-tighter text-primary" style="font-size:24px;font-weight:700;">THIRD WAVE</a>
+  <div class="hidden md:flex gap-10 items-center">
+    <a class="nav-link text-primary border-b border-primary pb-1 hover:text-primary transition-colors duration-300" href="index.html">STORY</a>
+    <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-300" href="menu.html">ROASTS</a>
+    <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-300" href="about.html">BREW</a>
+    <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-300" href="locations.html">LOCATIONS</a>
+  </div>
+  <div class="flex items-center gap-6">
+    <button class="material-symbols-outlined text-primary hover:scale-110 transition-transform">search</button>
+    <a href="menu.html" class="nav-link text-primary hover:text-primary transition-colors duration-300">MENU</a>
+  </div>
+</nav>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ============================================================
+       CUSTOM CURSOR
+       Two layered divs: a dot (cursor__dot) and a follower ring (cursor__ring).
+       JS will track mouse position and lerp the ring for lag effect.
+  ============================================================ -->
+  <div class="cursor__dot"  id="cursorDot"></div>
+  <div class="cursor__ring" id="cursorRing"></div>
+  <!-- ============================================================
+       PRELOADER
+       Full-screen overlay that plays on first load.
+       Contains the brand name split into individual chars for stagger.
+  ============================================================ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__wordmark">
+        <!-- Each span is a single character — GSAP staggers them upward -->
+        <span class="preloader__char">T</span>
+        <span class="preloader__char">H</span>
+        <span class="preloader__char">I</span>
+        <span class="preloader__char">R</span>
+        <span class="preloader__char">D</span>
+        <span class="preloader__char preloader__char--space"> </span>
+        <span class="preloader__char">W</span>
+        <span class="preloader__char">A</span>
+        <span class="preloader__char">V</span>
+        <span class="preloader__char">E</span>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="w-full h-full scale-[1.1]" id="hero-img-wrap">
+      <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAaAGU6PDDLbw4wo6pksQg5Cp-Vt_eRpy1-XiCGzczmwwNsaTu6Z7QmetsdPEhXyqzD8ae8pTAXCSBSzOkgRn3p9FBFFjRONmZJO2T8Eyyhk-RmCRjJ3YMxeo83EA56YIuadPxWf3hBqtndowePu5ISZQ0EJX4MhpuIENp_IThT6EpwQ7EJYhxF-0IuY_IxaK9v1Iq44SS3i5Vy62SKa0mdOfIhWe5tLkr4DostELu_Zu5fF_4MfJd0eImGm48E4Z7aRhZ1Mx5iZPE');"></div>
+    </div>
+    <div class="absolute inset-0 bg-background/40"></div>
+  </div>
+  <div class="relative z-10 text-center max-w-4xl px-margin-mobile">
+    <h1 style="font-size:clamp(48px,8vw,84px);font-weight:700;line-height:1.05;letter-spacing:-0.02em;" class="text-on-surface mb-8 drop-shadow-2xl">
+      THE ART OF THE <span class="text-primary italic">PERFECT</span> PULL
+    </h1>
+    <a href="menu.html" class="inline-block bg-primary text-on-primary px-10 py-5 nav-link tracking-[0.25em] hover:bg-white transition-colors duration-300" id="magnetic-cta">
+      EXPLORE THE BREW
+    </a>
+  </div>
+  <div class="absolute bottom-10 left-margin-desktop hidden md:block" style="left:64px;">
+    <div class="flex flex-col gap-4">
+      <div class="w-[1px] h-20 bg-outline-variant relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-primary -translate-y-full" id="scroll-line"></div>
+      </div>
+      <div class="preloader__sub">
+        <span class="preloader__sub-text">SPECIALTY COFFEE</span>
+      </div>
+      <div class="preloader__bar-wrap">
+        <div class="preloader__bar" id="preloaderBar"></div>
+      </div>
+      <span class="nav-link text-on-surface-variant" style="writing-mode:vertical-rl;text-orientation:mixed;">SCROLL</span>
+    </div>
+  </div>
+</section>
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="mainNav">
+    <div class="nav__logo">
+      <a href="#hero" class="nav__logo-link magnetic-btn">TWC</a>
+<!-- Intro Section -->
+<section class="py-section-gap max-w-container-max mx-auto px-margin-desktop scroll-reveal">
+  <div class="grid grid-cols-12 gap-gutter">
+    <div class="col-span-12 md:col-span-7 space-y-base">
+      <p class="nav-link text-primary mb-4">OUR PHILOSOPHY</p>
+      <h2 style="font-size:40px;font-weight:700;letter-spacing:-0.01em;line-height:1.2;" class="text-on-surface max-w-xl">WE TREAT COFFEE AS AN ARTISANAL FOODSTUFF, NOT A COMMODITY.</h2>
+    </div>
+    <ul class="nav__links">
+      <li><a href="#story"  class="nav__link magnetic-btn">Story</a></li>
+      <li><a href="#menu"   class="nav__link magnetic-btn">Menu</a></li>
+      <li><a href="#ritual" class="nav__link magnetic-btn">Ritual</a></li>
+      <li><a href="#visit"  class="nav__link magnetic-btn">Visit</a></li>
+    </ul>
+    <a href="#visit" class="nav__cta magnetic-btn">Reserve a Seat</a>
+    <!-- Mobile hamburger -->
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav__close" id="mobileClose" aria-label="Close menu">✕</button>
+    <ul class="mobile-nav__links">
+      <li><a href="#story"  class="mobile-nav__link">Story</a></li>
+      <li><a href="#menu"   class="mobile-nav__link">Menu</a></li>
+      <li><a href="#ritual" class="mobile-nav__link">Ritual</a></li>
+      <li><a href="#visit"  class="mobile-nav__link">Visit</a></li>
+    </ul>
+    <div class="col-span-12 md:col-span-5 flex items-end">
+      <p style="font-size:18px;line-height:1.6;" class="text-on-surface-variant">Every bean is sourced from micro-lots where farmers focus on soil health and genetic purity. We roast in small batches to preserve the volatile aromatics unique to each terroir.</p>
+    </div>
+  </div>
+</section>
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main>
+    <!-- ── HERO ─────────────────────────────────────────────────── -->
+    <section class="hero" id="hero">
+      <!-- Parallax background image layer -->
+      <div class="hero__bg-wrap">
+        <div class="hero__bg" id="heroBg"></div>
+        <div class="hero__bg-overlay"></div>
+      </div>
+      <div class="hero__content">
+        <!-- Eyebrow label -->
+        <p class="hero__eyebrow reveal-line">Est. 2019 · Single Origin</p>
+        <!-- Main headline — split into two lines for stagger control -->
+        <h1 class="hero__headline">
+          <span class="hero__headline-line reveal-line">Brewed with</span>
+          <span class="hero__headline-line reveal-line accent">Intention.</span>
+        </h1>
+        <!-- Sub-copy -->
+        <p class="hero__sub reveal-line">
+          Where craft meets ritual — every cup a journey<br />from soil to soul.
+        </p>
+        <!-- CTA with magnetic + fill animation -->
+        <div class="hero__cta-wrap reveal-line">
+          <a href="#menu" class="btn btn--primary magnetic-btn" id="heroCta">
+            <span class="btn__text">Explore Our Menu</span>
+            <span class="btn__fill"></span>
+          </a>
+          <a href="#story" class="btn btn--ghost magnetic-btn">
+            <span class="btn__text">Our Story</span>
+          </a>
+<!-- Parallax Feature Section -->
+<section class="relative py-section-gap bg-surface-container-lowest overflow-hidden">
+  <div class="max-w-container-max mx-auto px-margin-desktop">
+    <div class="grid grid-cols-12 gap-gutter items-center">
+      <div class="col-span-12 md:col-span-6 relative z-10 scroll-reveal">
+        <div class="p-12 border border-outline-variant bg-background/50 backdrop-blur-xl">
+          <span class="nav-link text-primary block mb-6">THE ROAST</span>
+          <h3 style="font-size:40px;font-weight:700;letter-spacing:-0.01em;" class="text-on-surface mb-8">PRECISION ROASTING</h3>
+          <p style="font-size:16px;line-height:1.6;" class="text-on-surface-variant mb-12">Our master roasters monitor the Maillard reaction with surgical precision, ensuring that the fruit-forward acidity of an Ethiopian Yirgacheffe is balanced by its inherent sweetness.</p>
+          <div class="flex flex-wrap gap-4">
+            <span class="px-4 py-2 bg-surface-container-high border border-outline-variant nav-link text-on-surface">LIGHT ROAST</span>
+            <span class="px-4 py-2 bg-surface-container-high border border-outline-variant nav-link text-on-surface">WASHED</span>
+            <span class="px-4 py-2 bg-surface-container-high border border-outline-variant nav-link text-on-surface">FRUITY</span>
+          </div>
+        </div>
+      </div>
+      <!-- Scroll indicator -->
+      <div class="hero__scroll-hint">
+        <span class="hero__scroll-line"></span>
+        <span class="hero__scroll-label">Scroll</span>
+      <div class="col-span-12 md:col-span-6 parallax-wrap">
+        <img alt="Specialty Roasted Beans" class="w-full aspect-square object-cover" id="parallax-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqG6bgQvnGiv42DsOnSaZuFV3kU0xPxaIljl3HIQAcAKWVHTnDW7Nf0zQM24fPgSzVLTEjMchLVborG1kAn9gqydPVWTuogub6jRkdQdy8sso-V2aja5uGPGxw3kwg8CL5MslAUxR6xNPwpLN9FAEqsWgjeAmUxRXln7U1ci929kFzW8WBjzWw6zYxIC1b1Wr6rXUGf9vjuZmzzmyOz_P3xXZPCZjDbCt6m4-re9k_kIqJE_rTXMFYKcDxIOc3CMq12Cy-N9BMyOA"/>
+      </div>
+    </section>
+    </div>
+  </div>
+</section>
+    <!-- ── MARQUEE TICKER ─────────────────────────────────────────── -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track" id="tickerTrack">
+        <span>Single Origin &nbsp;·&nbsp;</span>
+        <span>Cold Brew &nbsp;·&nbsp;</span>
+        <span>Pour Over &nbsp;·&nbsp;</span>
+        <span>Espresso &nbsp;·&nbsp;</span>
+        <span>Specialty Roasts &nbsp;·&nbsp;</span>
+        <span>Direct Trade &nbsp;·&nbsp;</span>
+        <span>Slow Drip &nbsp;·&nbsp;</span>
+        <span>Seasonal Blends &nbsp;·&nbsp;</span>
+        <span>Single Origin &nbsp;·&nbsp;</span>
+        <span>Cold Brew &nbsp;·&nbsp;</span>
+        <span>Pour Over &nbsp;·&nbsp;</span>
+        <span>Espresso &nbsp;·&nbsp;</span>
+        <span>Specialty Roasts &nbsp;·&nbsp;</span>
+        <span>Direct Trade &nbsp;·&nbsp;</span>
+        <span>Slow Drip &nbsp;·&nbsp;</span>
+        <span>Seasonal Blends &nbsp;·&nbsp;</span>
+<!-- Product Showcase -->
+<section class="py-section-gap max-w-container-max mx-auto px-margin-desktop">
+  <div class="flex justify-between items-end mb-16 scroll-reveal">
+    <div>
+      <span class="nav-link text-primary block mb-4">SHOP COLLECTION</span>
+      <h2 style="font-size:40px;font-weight:700;letter-spacing:-0.01em;" class="text-on-surface">FEATURED ORIGINS</h2>
+    </div>
+    <a href="menu.html" class="nav-link text-on-surface border-b border-on-surface pb-1 hover:text-primary hover:border-primary transition-all duration-300">VIEW ALL</a>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+    <!-- Card 1 -->
+    <div class="group scroll-reveal">
+      <div class="relative aspect-[4/5] bg-surface-container overflow-hidden mb-6">
+        <img alt="Guatemala Huehuetenango" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXlemP6Nnk6CIvb2Zu7ZL45-eoCrfu_SWhiaJtk1EQ5aKkzzlRIMFO6jQKiaG02SXcv9jFuVNotuBs6JCAj-sfo8tOcNFprIiTHTuJFJKXEJB2RGnyCncQBm-XGwmnhnK6TSmulfdMQ-BKzt0Ww_If4VF10HnyLZkd2-zIqFVoLWlefxOalPzNgHv9hgVVD_8EEKcqz38hKfhlSHGJbxUpDfKr7wOoIxWjUfQsGYp7jou3SCb1ywxchIvwXD5OFjS5U_US3PUkt1k"/>
+        <div class="absolute bottom-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+          <button class="bg-primary text-on-primary p-4 material-symbols-outlined">add_shopping_cart</button>
+        </div>
+      </div>
+      <h4 style="font-size:24px;font-weight:600;" class="text-on-surface mb-2">GUATEMALA</h4>
+      <p class="nav-link text-on-surface-variant">HUEHUETENANGO | $28.00</p>
+    </div>
+    <!-- ── STORY ──────────────────────────────────────────────────── -->
+    <section class="story section" id="story">
+      <div class="container">
+        <div class="story__grid">
+          <!-- Left: sticky image column -->
+          <div class="story__img-col">
+            <div class="story__img-wrap">
+              <div class="story__img story__img--1"></div>
+            </div>
+            <div class="story__img-wrap story__img-wrap--offset">
+              <div class="story__img story__img--2"></div>
+            </div>
+          </div>
+          <!-- Right: text column -->
+          <div class="story__text-col">
+            <p class="section__eyebrow reveal-up">Our Story</p>
+            <h2 class="section__title reveal-up">
+              Coffee is not<br />
+              <em>just a beverage.</em>
+            </h2>
+            <p class="story__body reveal-up">
+              Third Wave Coffee was born from an obsession with craft. We believe that
+              every bean carries the story of the land it grew in, the hands that
+              harvested it, and the passion of the roaster who coaxed its potential.
+            </p>
+            <p class="story__body reveal-up">
+              We work exclusively with single-origin farms, practicing direct trade
+              so farmers receive fair value. Each roast is small-batch, each brew
+              deliberate. This is not fast food coffee — this is coffee as ceremony.
+            </p>
+            <div class="story__stats reveal-up">
+              <div class="story__stat">
+                <span class="story__stat-num" data-target="12">0</span>
+                <span class="story__stat-label">Origins</span>
+              </div>
+              <div class="story__stat">
+                <span class="story__stat-num" data-target="47">0</span>
+                <span class="story__stat-label">Farm Partners</span>
+              </div>
+              <div class="story__stat">
+                <span class="story__stat-num" data-target="6">0</span>
+                <span class="story__stat-label">Award Wins</span>
+              </div>
+            </div>
+          </div>
+    <!-- Card 2 -->
+    <div class="group scroll-reveal" style="transition-delay:100ms;">
+      <div class="relative aspect-[4/5] bg-surface-container overflow-hidden mb-6">
+        <img alt="Ethiopia Sidamo" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEjQ4XQ9GowAfVEtc--Q8Slq6vjcRgfr8ZmHJqKYOdoKrahqBfPbBQXbofxKaqYr2qIer2gjakD65FO2cAUoBIAZ7Po9Xap3Bp9PaIAbvae5KnYW04ZJRCSV0vGHNhLCR4Fq_Qd7bGi-etSEfpY-lfls4pbGtQ4jNmDKW6BEPpBPsKbm9jlN-1s3Oz_TkyL0J8c5gVZRdNtHwpBO-MMWZaStcf60in3zoclxtiTF8oWtokeYeHaGf-9zNk0_s-g1fEIjniEwF_kes"/>
+        <div class="absolute bottom-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+          <button class="bg-primary text-on-primary p-4 material-symbols-outlined">add_shopping_cart</button>
+        </div>
+      </div>
+    </section>
+    <!-- ── MENU ───────────────────────────────────────────────────── -->
+    <section class="menu section" id="menu">
+      <div class="container">
+        <p class="section__eyebrow reveal-up">The Menu</p>
+        <h2 class="section__title reveal-up">Crafted with<br /><em>precision.</em></h2>
+      <h4 style="font-size:24px;font-weight:600;" class="text-on-surface mb-2">ETHIOPIA</h4>
+      <p class="nav-link text-on-surface-variant">SIDAMO | $32.00</p>
+    </div>
+    <!-- Card 3 -->
+    <div class="group scroll-reveal" style="transition-delay:200ms;">
+      <div class="relative aspect-[4/5] bg-surface-container overflow-hidden mb-6">
+        <img alt="Kenya AA" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUVtpuJuqM5BX11igC8WfB_N5Ms2BTLDcafOnaNY8rA6cEOmr1bsR0CEYquu5Y8RsAN1Wwe0A9SXbuZEeowH3WUyq6UbuCUOuCaTNHU9Fh8AY_GLtY7rXjJyl5kvqmRdj076Lt7ZHOuqy4iSIKmtJWqpPxdFz5-3NC-TXTHHXDMMXx3sLEbdFzotEWptTPEs_AUVm88GGcsWrWkGjLSuUsSC9IobwfXC-xDbUH3nT_C6Y1s-GwdLDnezw0rNaM_liWFIHVC9C4bIk"/>
+        <div class="absolute bottom-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+          <button class="bg-primary text-on-primary p-4 material-symbols-outlined">add_shopping_cart</button>
+        </div>
+      </div>
+      <h4 style="font-size:24px;font-weight:600;" class="text-on-surface mb-2">KENYA</h4>
+      <p class="nav-link text-on-surface-variant">KIRINYAGA | $30.00</p>
+    </div>
+  </div>
+</section>
+      <!-- Menu tabs -->
+      <div class="menu__tabs reveal-up">
+        <button class="menu__tab menu__tab--active" data-tab="espresso">Espresso</button>
+        <button class="menu__tab" data-tab="filter">Filter</button>
+        <button class="menu__tab" data-tab="cold">Cold Brew</button>
+        <button class="menu__tab" data-tab="seasonal">Seasonal</button>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-section-gap border-t border-outline-variant">
+  <div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-12 gap-gutter">
+    <div class="col-span-12 md:col-span-4">
+      <div style="font-size:40px;font-weight:700;" class="text-primary mb-8">THIRD WAVE</div>
+      <p style="font-size:16px;line-height:1.6;" class="text-on-surface-variant max-w-xs mb-8">Sourcing the world's most exceptional coffees and roasting them with obsessive precision.</p>
+    </div>
+    <div class="col-span-6 md:col-span-2 space-y-4">
+      <p class="nav-link text-on-surface mb-6">EXPLORE</p>
+      <a class="block nav-link text-on-surface-variant hover:text-primary transition-all duration-300" href="about.html">STORY</a>
+      <a class="block nav-link text-on-surface-variant hover:text-primary transition-all duration-300" href="menu.html">ROASTS</a>
+      <a class="block nav-link text-on-surface-variant hover:text-primary transition-all duration-300" href="locations.html">LOCATIONS</a>
+    </div>
+    <div class="col-span-6 md:col-span-2 space-y-4">
+      <p class="nav-link text-on-surface mb-6">SOCIAL</p>
+      <a class="block nav-link text-on-surface-variant hover:text-primary transition-all duration-300" href="#">INSTAGRAM</a>
+      <a class="block nav-link text-on-surface-variant hover:text-primary transition-all duration-300" href="#">TWITTER</a>
+    </div>
+    <div class="col-span-12 md:col-span-4">
+      <p class="nav-link text-on-surface mb-6">NEWSLETTER</p>
+      <div class="flex border-b border-outline-variant pb-2">
+        <input class="bg-transparent border-none focus:ring-0 w-full nav-link text-on-surface placeholder:text-outline-variant outline-none" placeholder="EMAIL ADDRESS" type="email"/>
+        <button class="material-symbols-outlined text-primary">arrow_forward</button>
+      </div>
+      <!-- Menu grid panels -->
+      <div class="menu__panel menu__panel--active" data-panel="espresso">
+        <div class="menu__grid container">
+          <div class="menu__card" data-tilt>
+            <div class="menu__card-img menu__card-img--espresso"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3 class="menu__card-name">Signature Espresso</h3>
+                <span class="menu__card-price">₹280</span>
+              </div>
+              <p class="menu__card-desc">A bold 22g double shot — nutty, chocolatey, with a lingering sweetness.</p>
+              <div class="menu__card-tags">
+                <span class="tag">Ethiopia Yirgacheffe</span>
+                <span class="tag">18s extraction</span>
+              </div>
+            </div>
+          </div>
+          <div class="menu__card" data-tilt>
+            <div class="menu__card-img menu__card-img--cortado"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3 class="menu__card-name">Cortado</h3>
+                <span class="menu__card-price">₹320</span>
+              </div>
+              <p class="menu__card-desc">Equal parts espresso and steamed milk — concentrated, velvety, perfect.</p>
+              <div class="menu__card-tags">
+                <span class="tag">Colombia Huila</span>
+                <span class="tag">Micro-foam</span>
+              </div>
+            </div>
+          </div>
+          <div class="menu__card" data-tilt>
+            <div class="menu__card-img menu__card-img--flat"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3 class="menu__card-name">Flat White</h3>
+                <span class="menu__card-price">₹340</span>
+              </div>
+              <p class="menu__card-desc">Ristretto-based, silky micro-foam — the antipodean classic, perfected.</p>
+              <div class="menu__card-tags">
+                <span class="tag">Papua New Guinea</span>
+                <span class="tag">Ristretto</span>
+              </div>
+            </div>
+          </div>
+          <div class="menu__card" data-tilt>
+            <div class="menu__card-img menu__card-img--lungo"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3 class="menu__card-name">Lungo Noir</h3>
+                <span class="menu__card-price">₹300</span>
+              </div>
+              <p class="menu__card-desc">Long-pull espresso over ice, bright acidity, caramel finish.</p>
+              <div class="menu__card-tags">
+                <span class="tag">Kenya AA</span>
+                <span class="tag">Long extraction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-span-12 pt-24 flex flex-col md:flex-row justify-between items-center gap-6">
+      <p class="nav-link text-on-surface-variant">© 2024 THIRD WAVE ROASTERS. ALL RIGHTS RESERVED.</p>
+      <div class="flex gap-8">
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-300" href="#">PRIVACY</a>
+        <a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-300" href="#">TERMS</a>
+      </div>
+    </div>
+  </div>
+</footer>
+      <div class="menu__panel" data-panel="filter">
+        <div class="menu__grid container">
+          <div class="menu__card" data-tilt>
+            <div class="menu__card-img menu__card-img--pourover"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3 class="menu__card-name">V60 Pour Over</h3>
+                <span class="menu__card-price">₹380</span>
+              </div>
+              <p class="menu__card-desc">Hand-poured clarity — floral, tea-like, nuanced and clean.</p>
+              <div class="menu__card-tags">
+                <span class="tag">Ethiopia Natural</span>
+                <span class="tag">Hario V60</span>
+              </div>
+            </div>
+          </div>
+          <div class="menu__card" data-tilt>
+            <div class="menu__card-img menu__card-img--aeropress"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3 class="menu__card-name">AeroPress</h3>
+                <span class="menu__card-price">₹360</span>
+              </div>
+              <p class="menu__card-desc">Pressure-brewed for a full, syrupy body with zero bitterness.</p>
+              <div class="menu__card-tags">
+                <span class="tag">Guatemala Antigua</span>
+                <span class="tag">Inverted method</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<script>
+  // Lenis smooth scroll
+  const lenis = new Lenis();
+  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+      <div class="menu__panel" data-panel="cold">
+        <div class="menu__grid container">
+          <div class="menu__card" data-tilt>
+            <div class="menu__card-img menu__card-img--coldbrew"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3 class="menu__card-name">Nitro Cold Brew</h3>
+                <span class="menu__card-price">₹420</span>
+              </div>
+              <p class="menu__card-desc">18-hour steep, nitrogen-infused — creamy, dark, and utterly smooth.</p>
+              <div class="menu__card-tags">
+                <span class="tag">Brazil Santos</span>
+                <span class="tag">Nitrogen charged</span>
+              </div>
+            </div>
+          </div>
+          <div class="menu__card" data-tilt>
+            <div class="menu__card-img menu__card-img--flashbrew"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3 class="menu__card-name">Flash Brew</h3>
+                <span class="menu__card-price">₹390</span>
+              </div>
+              <p class="menu__card-desc">Japanese iced pour-over — bright acidity locked in by rapid chilling.</p>
+              <div class="menu__card-tags">
+                <span class="tag">Kenya Nyeri</span>
+                <span class="tag">Japanese style</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
+      <div class="menu__panel" data-panel="seasonal">
+        <div class="menu__grid container">
+          <div class="menu__card menu__card--featured" data-tilt>
+            <div class="menu__card-img menu__card-img--seasonal"></div>
+            <div class="menu__card-body">
+              <div class="menu__card-top">
+                <h3 class="menu__card-name">Monsoon Malabar Latte</h3>
+                <span class="menu__card-price">₹460</span>
+              </div>
+              <p class="menu__card-desc">Monsoon-processed Indian beans, low acidity, earthy spice — limited summer special.</p>
+              <div class="menu__card-tags">
+                <span class="tag">India Malabar</span>
+                <span class="tag">Seasonal</span>
+                <span class="tag accent-tag">Limited</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    // Preloader
+    const tlLoader = gsap.timeline();
+    tlLoader.from("#loader-text", { y: 100, opacity: 0, duration: 1, ease: "power4.out" })
+      .to("#preloader", { clipPath: "inset(0 0 100% 0)", duration: 1.2, ease: "power4.inOut", delay: 0.5 });
+    <!-- ── RITUAL / PROCESS ───────────────────────────────────────── -->
+    <section class="ritual section" id="ritual">
+      <div class="ritual__bg-wrap">
+        <div class="ritual__bg" id="ritualBg"></div>
+        <div class="ritual__bg-overlay"></div>
+      </div>
+      <div class="container ritual__content">
+        <p class="section__eyebrow reveal-up section__eyebrow--light">The Ritual</p>
+        <h2 class="section__title section__title--light reveal-up">
+          Every cup,<br /><em>a ceremony.</em>
+        </h2>
+        <div class="ritual__steps">
+          <div class="ritual__step reveal-up">
+            <span class="ritual__step-num">01</span>
+            <h3 class="ritual__step-title">Source</h3>
+            <p class="ritual__step-body">We visit our partner farms yearly, cupping hundreds of lots to find the extraordinary ones.</p>
+          </div>
+          <div class="ritual__step reveal-up">
+            <span class="ritual__step-num">02</span>
+            <h3 class="ritual__step-title">Roast</h3>
+            <p class="ritual__step-body">Small-batch roasting on our Loring Smart Roast — dialing each origin's profile to its peak.</p>
+          </div>
+          <div class="ritual__step reveal-up">
+            <span class="ritual__step-num">03</span>
+            <h3 class="ritual__step-title">Brew</h3>
+            <p class="ritual__step-body">Our baristas are certified Q-graders who approach each brew with timer, scale, and intention.</p>
+          </div>
+          <div class="ritual__step reveal-up">
+            <span class="ritual__step-num">04</span>
+            <h3 class="ritual__step-title">Savour</h3>
+            <p class="ritual__step-body">We ask you to slow down. Smell. Taste. Let the coffee tell its story to you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    // Hero parallax
+    gsap.to("#hero-img-wrap", {
+      scale: 1, scrollTrigger: { trigger: "body", start: "top top", end: "bottom top", scrub: true }
+    });
+    <!-- ── GALLERY STRIP ─────────────────────────────────────────── -->
+    <section class="gallery section">
+      <div class="container">
+        <p class="section__eyebrow reveal-up">The Space</p>
+        <h2 class="section__title reveal-up">Designed for<br /><em>focus.</em></h2>
+      </div>
+      <div class="gallery__strip" id="galleryStrip">
+        <div class="gallery__item gallery__item--1"></div>
+        <div class="gallery__item gallery__item--2"></div>
+        <div class="gallery__item gallery__item--3"></div>
+        <div class="gallery__item gallery__item--4"></div>
+        <div class="gallery__item gallery__item--5"></div>
+      </div>
+    </section>
+    // Scroll reveals
+    gsap.utils.toArray('.scroll-reveal').forEach(el => {
+      gsap.from(el, {
+        y: 80, opacity: 0, duration: 1.5, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" }
+      });
+    });
+    <!-- ── VISIT ──────────────────────────────────────────────────── -->
+    <section class="visit section" id="visit">
+      <div class="container visit__grid">
+        <div class="visit__text">
+          <p class="section__eyebrow reveal-up">Find Us</p>
+          <h2 class="section__title reveal-up">Come for the<br /><em>coffee. Stay</em><br />for the silence.</h2>
+          <div class="visit__details reveal-up">
+            <div class="visit__detail-item">
+              <span class="visit__detail-label">Address</span>
+              <span class="visit__detail-value">12, Chapel Road, Bandra West<br />Mumbai, 400050</span>
+            </div>
+            <div class="visit__detail-item">
+              <span class="visit__detail-label">Hours</span>
+              <span class="visit__detail-value">Mon–Fri: 7am – 9pm<br />Sat–Sun: 8am – 10pm</span>
+            </div>
+            <div class="visit__detail-item">
+              <span class="visit__detail-label">Reservations</span>
+              <span class="visit__detail-value">hello@thirdwavecoffee.in<br />+91 98765 43210</span>
+            </div>
+          </div>
+          <a href="mailto:hello@thirdwavecoffee.in" class="btn btn--primary magnetic-btn reveal-up">
+            <span class="btn__text">Make a Reservation</span>
+            <span class="btn__fill"></span>
+          </a>
+        </div>
+        <div class="visit__map-placeholder reveal-up">
+          <div class="visit__map-inner">
+            <span class="visit__map-pin">📍</span>
+            <p>Third Wave Coffee<br /><small>Bandra West, Mumbai</small></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    // Parallax image
+    gsap.to("#parallax-img", {
+      yPercent: -20, ease: "none",
+      scrollTrigger: { trigger: ".parallax-wrap", start: "top bottom", end: "bottom top", scrub: true }
+    });
+  </main>
+    // Scroll indicator
+    gsap.to("#scroll-line", { y: "100%", repeat: -1, duration: 2, ease: "none" });
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__wordmark">TWC</span>
+        <p class="footer__tagline">Brewed with Intention.</p>
+      </div>
+      <div class="footer__links">
+        <a href="#story"  class="footer__link magnetic-btn">Story</a>
+        <a href="#menu"   class="footer__link magnetic-btn">Menu</a>
+        <a href="#ritual" class="footer__link magnetic-btn">Ritual</a>
+        <a href="#visit"  class="footer__link magnetic-btn">Visit</a>
+      </div>
+      <div class="footer__social">
+        <a href="#" class="footer__social-link magnetic-btn" aria-label="Instagram">IG</a>
+        <a href="#" class="footer__social-link magnetic-btn" aria-label="Twitter">TW</a>
+        <a href="#" class="footer__social-link magnetic-btn" aria-label="LinkedIn">LI</a>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <p>© 2024 Third Wave Coffee. All rights reserved.</p>
+      <p>Crafted with obsession.</p>
+    </div>
+  </footer>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('expand'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('expand'));
+    });
+    document.addEventListener('mousemove', (e) => {
+      gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
+    });
+  <script src="script.js"></script>
+</body>
+</html>
+    // Magnetic CTA
+    const cta = document.getElementById('magnetic-cta');
+    cta.addEventListener('mousemove', (e) => {
+      const rect = cta.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      gsap.to(cta, { x: x * 0.3, y: y * 0.3, duration: 0.3, ease: "power2.out" });
+    });
+    cta.addEventListener('mouseleave', () => {
+      gsap.to(cta, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+    });
+  });
+</script>
+</body><html>
