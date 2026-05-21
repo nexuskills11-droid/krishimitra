@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Locations | THIRD WAVE — Curated Coffee Spaces</title>
+<meta name="description" content="Find Third Wave Coffee locations in Los Angeles — Arts District, Venice Beach, and Silver Lake. Obsidian sanctuaries designed for the art of coffee."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-variant": "#3b3428","outline-variant": "#514532","primary": "#ffdca1","on-primary": "#412d00",
+          "primary-fixed-dim": "#ffba20","on-background": "#ede1d0","on-surface": "#ede1d0","surface-container-low": "#211b11",
+          "surface-container": "#251f14","background": "#181309","secondary": "#c6c6c7","inverse-surface": "#ede1d0",
+          "primary-container": "#ffb800","on-surface-variant": "#d5c4ab","surface-bright": "#3f382d","outline": "#9e8f78",
+          "secondary-container": "#454747","surface-dim": "#181309","surface-container-lowest": "#130d05","surface": "#181309",
+          "primary-fixed": "#ffdea8","surface-container-high": "#30291e","on-primary-container": "#6b4c00",
+        },
+        spacing: { "gutter": "32px","base": "8px","section-gap": "128px","margin-mobile": "24px","margin-desktop": "64px","container-max": "1280px" },
+        fontFamily: { sans: ["Inter","sans-serif"] },
+        fontSize: {
+          "headline-lg": ["40px",{lineHeight:"1.2",letterSpacing:"-0.01em",fontWeight:"700"}],
+          "body-md": ["16px",{lineHeight:"1.6",letterSpacing:"0.01em",fontWeight:"400"}],
+          "display-lg": ["64px",{lineHeight:"1.1",letterSpacing:"-0.02em",fontWeight:"700"}],
+          "body-lg": ["18px",{lineHeight:"1.6",letterSpacing:"0.01em",fontWeight:"400"}],
+          "label-caps": ["12px",{lineHeight:"1.0",letterSpacing:"0.15em",fontWeight:"600"}],
+          "headline-md": ["24px",{lineHeight:"1.3",letterSpacing:"0.02em",fontWeight:"600"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  * { font-family:'Inter',sans-serif; }
+  body { background-color:#181309; color:#ede1d0; overflow-x:hidden; }
+  .custom-scrollbar::-webkit-scrollbar { height:2px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background:#262626; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background:#ffdca1; }
+  ::-webkit-scrollbar { width:4px; }
+  ::-webkit-scrollbar-track { background:#130d05; }
+  ::-webkit-scrollbar-thumb { background:#ffdca1; }
+  .parallax-container { overflow-x:auto;overflow-y:hidden;display:flex;gap:32px;padding-bottom:40px; }
+  .parallax-card { flex:0 0 80vw;height:60vh;position:relative;overflow:hidden;transition:transform 0.3s ease; }
+  @media (min-width:1024px) { .parallax-card { flex:0 0 60vw; } }
+  .parallax-img { position:absolute;top:0;left:-10%;width:120%;height:100%;object-fit:cover;transition:transform 0.1s linear;filter:brightness(0.7); }
+  .parallax-card:hover .parallax-img { filter:brightness(0.9); }
+  .reveal-on-scroll { opacity:0;transform:translateY(20px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .reveal-on-scroll.visible { opacity:1;transform:translateY(0); }
+  #cursor { width:32px;height:32px;border:1px solid #ffdca1;border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transition:transform 0.1s ease-out; }
+  .nav-link { font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase; }
+  .location-card:hover h5 { color:#ffdca1; }
+  .location-card { transition:border-color 0.3s ease; }
+  .location-card:hover { border-color:#ffdca1 !important; }
+</style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-outline-variant">
+  <div class="flex justify-between items-center h-20 px-margin-desktop w-full">
+    <a href="index.html" style="font-size:24px;font-weight:700;" class="tracking-tighter text-primary">THIRD WAVE</a>
+    <div class="hidden md:flex items-center space-x-10">
+      <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-300" href="about.html">STORY</a>
+      <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-300" href="menu.html">ROASTS</a>
+      <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html">BREW</a>
+      <a class="nav-link text-primary border-b border-primary pb-1" href="locations.html">LOCATIONS</a>
+    </div>
+    <div class="flex items-center gap-6">
+      <a href="menu.html" class="nav-link text-primary hover:scale-95 duration-200">MENU</a>
+      <button class="md:hidden text-primary">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+</nav>
+<main class="pt-20">
+  <!-- Hero -->
+  <section class="h-[70vh] flex flex-col justify-center px-margin-desktop">
+    <h1 style="font-size:clamp(40px,7vw,64px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;" class="max-w-3xl reveal-on-scroll" id="hero-title">
+      CURATED <span class="text-primary italic">SPACES</span> FOR THE ART OF COFFEE.
+    </h1>
+    <p style="font-size:18px;line-height:1.6;" class="mt-8 text-on-surface-variant max-w-xl reveal-on-scroll" style="transition-delay:200ms;">
+      We select our locations based on architectural integrity and communal energy. Each café is designed to be an obsidian sanctuary—a place where time slows down.
+    </p>
+  </section>
+  <!-- Horizontal Scroll Gallery -->
+  <section class="py-section-gap">
+    <div class="px-margin-desktop mb-12 flex justify-between items-end">
+      <div>
+        <h2 class="nav-link text-primary mb-4">GALLERY</h2>
+        <h3 style="font-size:40px;font-weight:700;letter-spacing:-0.01em;">THE DESIGN ARCHIVE</h3>
+      </div>
+      <div class="hidden md:block">
+        <p class="nav-link text-on-surface-variant">SCROLL TO EXPLORE —&gt;</p>
+      </div>
+    </div>
+    <div class="parallax-container custom-scrollbar px-margin-desktop">
+      <!-- Location 1 -->
+      <div class="parallax-card group">
+        <img alt="Arts District" class="parallax-img" data-parallax-speed="0.1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApD606Bif0jK74ZmBHFtgMOpvNmvrB_ZTiUN269sL6dAMaH-HLJ3P-guouXVMHmdtOApuxkzQWyvYOZ4QsO795lsBgCs2hitjwUQze_6dP9OOF-I-glqfBfyEiP--aWe-6NMfkxOOUW26oEuKRz8kRUzxsSEr8j3JP8J1FYASd4jrBwTMMUcgWEcxZyEkwz4OMUDAUswKPR1VUNdctFUE8Yla_0Z9k3vRW_UkQw6C3prdyApIqmmKMwDi0W_ynTuBV3InIyB1U4U4"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent flex flex-col justify-end p-gutter">
+          <span class="nav-link text-primary mb-2">01 / LOS ANGELES</span>
+          <h4 style="font-size:40px;font-weight:700;letter-spacing:-0.01em;" class="text-on-surface">ARTS DISTRICT</h4>
+          <p style="font-size:16px;line-height:1.6;" class="text-on-surface-variant mt-4 max-w-sm">Raw concrete meets precision lighting in our flagship industrial restoration.</p>
+        </div>
+      </div>
+      <!-- Location 2 -->
+      <div class="parallax-card group">
+        <img alt="Venice Beach" class="parallax-img" data-parallax-speed="0.15" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8vnLQO3abP8jchg4DF6E1uPyU0u3OCc-2M9-PH2qyNT3HxR01BUOqpO015vGIGel1UZKBRJ2dYy9P7gJEHmZZDqjTTLEmmIjvbPF75G7e3VpJSQB-Tzlo-sRjd8UZSNn1p0CHb1NIxYpNdzFDH4SV_zTCcV7u0oGduOe3hEx_5fpmY0ZNlxuTQvwta_EqldCIclyNWS-fTc7SpBTZwizqNkmjUpEenXXxpLOrVmh7sWG-4POzsKCAN-jjWPqqEAXZvqJDURSZ4dw"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent flex flex-col justify-end p-gutter">
+          <span class="nav-link text-primary mb-2">02 / LOS ANGELES</span>
+          <h4 style="font-size:40px;font-weight:700;letter-spacing:-0.01em;" class="text-on-surface">VENICE BEACH</h4>
+          <p style="font-size:16px;line-height:1.6;" class="text-on-surface-variant mt-4 max-w-sm">Minimalist wood accents and high-contrast shadows steps from the Pacific.</p>
+        </div>
+      </div>
+      <!-- Location 3: Coming Soon -->
+      <div class="parallax-card group">
+        <div class="w-full h-full bg-surface-container-high relative overflow-hidden">
+          <img alt="Silver Lake" class="parallax-img opacity-50 scale-110 blur-sm" data-parallax-speed="0.2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApD606Bif0jK74ZmBHFtgMOpvNmvrB_ZTiUN269sL6dAMaH-HLJ3P-guouXVMHmdtOApuxkzQWyvYOZ4QsO795lsBgCs2hitjwUQze_6dP9OOF-I-glqfBfyEiP--aWe-6NMfkxOOUW26oEuKRz8kRUzxsSEr8j3JP8J1FYASd4jrBwTMMUcgWEcxZyEkwz4OMUDAUswKPR1VUNdctFUE8Yla_0Z9k3vRW_UkQw6C3prdyApIqmmKMwDi0W_ynTuBV3InIyB1U4U4"/>
+          <div class="absolute inset-0 flex items-center justify-center p-gutter text-center">
+            <h4 style="font-size:clamp(48px,7vw,64px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;" class="text-primary opacity-20">COMING<br/>SOON</h4>
+          </div>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent flex flex-col justify-end p-gutter">
+          <span class="nav-link text-primary mb-2">03 / LOS ANGELES</span>
+          <h4 style="font-size:40px;font-weight:700;letter-spacing:-0.01em;" class="text-on-surface">SILVER LAKE</h4>
+          <p style="font-size:16px;line-height:1.6;" class="text-on-surface-variant mt-4 max-w-sm">A geometric monolith overlooking the hills. Opening Winter 2024.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Map Section -->
+  <section class="py-section-gap px-margin-desktop bg-surface-container-lowest">
+    <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+      <div class="md:col-span-4 reveal-on-scroll">
+        <h2 class="nav-link text-primary mb-4">FIND US</h2>
+        <h3 style="font-size:40px;font-weight:700;letter-spacing:-0.01em;" class="mb-8">LOCATIONS MAP</h3>
+        <div class="space-y-8">
+          <div class="location-card border-b border-outline-variant pb-6 group">
+            <h5 style="font-size:24px;font-weight:600;" class="transition-colors">ARTS DISTRICT</h5>
+            <p style="font-size:16px;line-height:1.6;" class="text-on-surface-variant mt-1">942 E 2nd St, Los Angeles, CA 90012</p>
+            <p class="nav-link text-primary mt-4">7AM — 6PM DAILY</p>
+          </div>
+          <div class="location-card border-b border-outline-variant pb-6 group">
+            <h5 style="font-size:24px;font-weight:600;" class="transition-colors">VENICE BEACH</h5>
+            <p style="font-size:16px;line-height:1.6;" class="text-on-surface-variant mt-1">1202 Abbot Kinney Blvd, Venice, CA 90291</p>
+            <p class="nav-link text-primary mt-4">6AM — 5PM DAILY</p>
+          </div>
+          <div class="location-card border-b border-outline-variant pb-6 group">
+            <h5 style="font-size:24px;font-weight:600;" class="transition-colors">SILVER LAKE</h5>
+            <p style="font-size:16px;line-height:1.6;" class="text-on-surface-variant mt-1">Sunset Blvd (Location Reveal Soon)</p>
+            <p class="nav-link text-primary mt-4">COMING SOON</p>
+          </div>
+        </div>
+      </div>
+      <div class="md:col-span-8 h-[600px] w-full bg-surface-container relative border border-outline-variant overflow-hidden reveal-on-scroll" style="transition-delay:300ms;">
+        <div class="absolute inset-0" style="background-image:radial-gradient(circle at 2px 2px,#262626 1px,transparent 0);background-size:24px 24px;filter:contrast(1.2) brightness(0.4);"></div>
+        <!-- Map markers -->
+        <div class="absolute top-1/4 left-1/3 w-4 h-4 bg-primary animate-pulse rounded-full"></div>
+        <div class="absolute top-2/3 left-1/2 w-4 h-4 bg-primary animate-pulse rounded-full" style="animation-delay:500ms;"></div>
+        <div class="absolute top-1/2 left-1/4 w-3 h-3 border border-primary/50 rounded-full"></div>
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="bg-background/90 border border-outline-variant text-center backdrop-blur-sm px-8 py-6">
+            <p class="nav-link text-primary mb-2">MAP VIEW</p>
+            <p style="font-size:16px;" class="text-on-surface">LOCATING ARCHITECTURAL HUBS...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Newsletter -->
+  <section class="py-section-gap px-margin-desktop text-center">
+    <div class="max-w-2xl mx-auto reveal-on-scroll">
+      <h3 style="font-size:40px;font-weight:700;letter-spacing:-0.01em;" class="mb-6">STAY NOTIFIED</h3>
+      <p style="font-size:16px;line-height:1.6;" class="text-on-surface-variant mb-12">Receive updates on new location openings and limited architectural events.</p>
+      <form class="flex flex-col md:flex-row gap-4" onsubmit="return false;">
+        <input class="flex-1 bg-surface-container border border-outline-variant px-6 py-4 nav-link text-on-surface focus:outline-none focus:border-primary transition-colors" placeholder="EMAIL ADDRESS" type="email"/>
+        <button class="bg-primary text-background nav-link px-12 py-4 hover:brightness-110 transition-all" type="submit">SUBSCRIBE</button>
+      </form>
+    </div>
+  </section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant w-full py-section-gap">
+  <div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-12 gap-gutter">
+    <div class="col-span-12 md:col-span-4">
+      <a href="index.html" style="font-size:40px;font-weight:700;" class="text-primary">THIRD WAVE</a>
+      <p class="mt-8 nav-link text-on-surface-variant leading-relaxed">PRECISION COFFEE ROASTERS.<br/>CRAFTED IN LOS ANGELES.</p>
+    </div>
+    <div class="col-span-12 md:col-span-8 flex flex-wrap justify-end gap-12 mt-12 md:mt-0">
+      <div class="space-y-4">
+        <p class="nav-link text-primary">SOCIAL</p>
+        <a class="block nav-link text-on-surface-variant hover:text-primary transition-all" href="#">INSTAGRAM</a>
+        <a class="block nav-link text-on-surface-variant hover:text-primary transition-all" href="#">TWITTER</a>
+      </div>
+      <div class="space-y-4">
+        <p class="nav-link text-primary">SUPPORT</p>
+        <a class="block nav-link text-on-surface-variant hover:text-primary transition-all" href="#">CONTACT</a>
+        <a class="block nav-link text-on-surface-variant hover:text-primary transition-all" href="#">PRIVACY</a>
+        <a class="block nav-link text-on-surface-variant hover:text-primary transition-all" href="#">TERMS</a>
+      </div>
+    </div>
+    <div class="col-span-12 mt-24">
+      <p class="nav-link text-on-surface-variant opacity-40">© 2024 THIRD WAVE ROASTERS. ALL RIGHTS RESERVED.</p>
+    </div>
+  </div>
+</footer>
+<!-- Custom Cursor -->
+<div class="hidden md:flex fixed w-8 h-8 border border-primary rounded-full pointer-events-none z-[9999] items-center justify-center" id="cursor">
+  <div class="w-1 h-1 bg-primary rounded-full"></div>
+</div>
+<script>
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px)`;
+  });
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('scale-150'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('scale-150'));
+  });
+  // Parallax scroll
+  const container = document.querySelector('.parallax-container');
+  container.addEventListener('scroll', () => {
+    const scrollLeft = container.scrollLeft;
+    document.querySelectorAll('.parallax-img').forEach(img => {
+      const speed = parseFloat(img.dataset.parallaxSpeed) || 0.1;
+      img.style.transform = `translateX(${-scrollLeft * speed}px)`;
+    });
+  });
+  // Intersection reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+  setTimeout(() => {
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+    });
+  }, 100);
+</script>
+</body><html>
